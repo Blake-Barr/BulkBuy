@@ -104,6 +104,31 @@ Then: The application will prompt the user that order numbers are number only, a
 
 ## Class Descriptions
 
+### com.bulkbuy.ui
+
+Controller - Controller for the UI
+
+OrderLayout - Format for the Order lookup and placement pages
+
+LookupOrder - Collects order ID to find order with the given ID
+
+CreateOrder - Handles information given from the user to place an order.
+
+
+### com.bulkbuy.dto
+
+Order - Basic Object class to store information for orders.
+
+
+### com.bulkbuy.service
+
+IOrderService, OrderService, OrderServiceStub - handles sending information from the UI to the database
+
+
+### com.bulkbuy.dao
+
+IOrderDAO, OrderDAO, OrderDAOStub - handles data retrieval and storage for the application
+
 ## Team Members & Roles
 
 **UI Specialist**: Brendan Root
