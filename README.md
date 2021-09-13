@@ -118,12 +118,12 @@ Then: The application will prompt the user that order numbers are number only, a
 
 ## Milestones
 
-[Milestone 1]([https://github.com/coffee-ns/BulkBuy/milestone/1])
+[Milestone 1](https://github.com/coffee-ns/BulkBuy/milestone/1)
 
-[Milestone 2]([https://github.com/coffee-ns/BulkBuy/milestone/2])
+[Milestone 2](https://github.com/coffee-ns/BulkBuy/milestone/2)
 
 [Milestone 3](https://github.com/coffee-ns/BulkBuy/milestone/3)
 
 ## Standup
 
-[We meet weekly at 3:00PM on Saturdays]
+[We meet weekly at 8:00PM on Sundays]
