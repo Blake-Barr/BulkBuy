@@ -1,6 +1,6 @@
 # AppDevGroupProject
 
-Introduction – BulkBuy(?) is an application that helps customers place bulk orders on a specific product. They can create an order and specify a shipping address, with the ability to change the product description, quantity, shipping service, and date to ship the order. The customer can also input an order message for additional details. 
+Introduction – BulkBuy is an application that helps customers place bulk orders on a specific product. They can create an order and specify a shipping address, with the ability to change the product description, quantity, shipping service, and date to ship the order. The customer can also input an order message for additional details. 
 
 When the order is complete, the customer will receive an order number, where they can view their inputted information as well as the deliverer, estimated arrival date, and shipping status. 
 
@@ -100,11 +100,17 @@ Then: The application will prompt the user that order numbers are number only, a
 
 ## Class Diagram
 
+![image](https://user-images.githubusercontent.com/77906864/133007918-a9c1907c-3ac9-46f4-b4ae-925a53e77e30.png)
+
 ## Class Descriptions
 
 ## Team Members & Roles
 
-
+**UI Specialist**: 
+**UI Specialist**: 
+**Business Logic and Persistence Specialist**: 
+**Business Logic and Persistence Specialist**: 
+**Product Owner/Scrum Master/DevOps/GitHub Administrator**: Nathan Coffee
 
 ## Milestones
 
