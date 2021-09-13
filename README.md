@@ -1,4 +1,4 @@
-# AppDevGroupProject
+# BulkBuy
 
 Introduction – BulkBuy is an application that helps customers place bulk orders on a specific product. They can create an order and specify a shipping address, with the ability to change the product description, quantity, shipping service, and date to ship the order. The customer can also input an order message for additional details. 
 
