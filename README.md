@@ -126,4 +126,4 @@ Then: The application will prompt the user that order numbers are number only, a
 
 ## Standup
 
-[We meet weekly at 8:00PM on Sundays]
+[We meet weekly at 8:00PM on Sundays](https://teams.microsoft.com/l/meetup-join/19%3ameeting_NTdhYmY4N2YtNTIwMC00MjIzLTg5YWMtMWE0MTBmODI5ZWJj%40thread.v2/0?context=%7b%22Tid%22%3a%22f5222e6c-5fc6-48eb-8f03-73db18203b63%22%2c%22Oid%22%3a%22f763efca-3726-4129-8023-2d5dda742031%22%7d)
