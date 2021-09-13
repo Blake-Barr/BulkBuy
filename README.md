@@ -106,10 +106,14 @@ Then: The application will prompt the user that order numbers are number only, a
 
 ## Team Members & Roles
 
-**UI Specialist**: 
-**UI Specialist**: 
-**Business Logic and Persistence Specialist**: 
-**Business Logic and Persistence Specialist**: 
+**UI Specialist**: Brendan Root
+
+**UI Specialist**: Maximiliano De Santiago Galan
+
+**Business Logic and Persistence Specialist**: Brandon Matalka
+
+**Business Logic and Persistence Specialist**: Blake Barr
+
 **Product Owner/Scrum Master/DevOps/GitHub Administrator**: Nathan Coffee
 
 ## Milestones
@@ -118,7 +122,7 @@ Then: The application will prompt the user that order numbers are number only, a
 
 [Milestone 2]([https://github.com/coffee-ns/BulkBuy/milestone/2])
 
-[Milestone 3]([https://github.com/coffee-ns/BulkBuy/milestone/3])
+[Milestone 3](https://github.com/coffee-ns/BulkBuy/milestone/3)
 
 ## Standup
 
