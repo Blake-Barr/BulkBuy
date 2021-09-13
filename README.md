@@ -122,6 +122,4 @@ Then: The application will prompt the user that order numbers are number only, a
 
 ## Standup
 
-[We meet weekly at 3:00PM on Saturdays](adding teams link later)
-
-## Standup
+[We meet weekly at 3:00PM on Saturdays]
