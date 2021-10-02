@@ -28,7 +28,7 @@ class EnterpriseApplicationTests {
         Date orderDate = new Date(2021,10,1);
         Date estimatedArrival = null;
         String carrier = "International Paper";
-        String orderStatus = "Order Recieved";
+        String orderStatus = "Order Received";
 
         Order order = new Order();
         order.setOrderId(orderId);
@@ -59,7 +59,7 @@ class EnterpriseApplicationTests {
         Date orderDate = new Date(2021,10,1);
         Date estimatedArrival = null;
         String carrier = "International Paper";
-        String orderStatus = "Order Recieved";
+        String orderStatus = "Order Received";
 
         Order order = new Order();
         order.setOrderId(orderId);
@@ -95,7 +95,7 @@ class EnterpriseApplicationTests {
         Date orderDate = new Date(2021,10,1);
         Date estimatedArrival = null;
         String carrier = "International Paper";
-        String orderStatus = "Order Recieved";
+        String orderStatus = "Order Received";
 
         Order order = new Order();
         order.setOrderId(orderId);
@@ -111,7 +111,7 @@ class EnterpriseApplicationTests {
         String productDescription2 = "Box of 60 Black Pens";
         Date orderDate2 = new Date(2021,9,17);
         Date estimatedArrival2 = new Date(2021,9,24);
-        String carrier2 = "Société Bic";
+        String carrier2 = "Societe Bic";
         String orderStatus2 = "Delivered";
 
         Order order2 = new Order();
