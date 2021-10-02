@@ -1,11 +1,17 @@
 package com.bulkbuy.enterprise;
 
+import com.bulkbuy.enterprise.dto.Order;
+import com.bulkbuy.enterprise.service.IOrderService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @SpringBootTest
 class EnterpriseApplicationTests {
@@ -75,7 +81,7 @@ class EnterpriseApplicationTests {
         List<Order> orders = orderService.getAllOrders();
         for (Order ord:orders)
         {
-            if (ord.getOrderId().equals(orderId) && ord.getQuantity().equals(quantity) && ord.getOrderDate().equals(orderDate))
+            if (ord.getOrderId() == orderId && ord.getQuantity() == quantity && ord.getOrderDate().equals(orderDate))
             {
                 assertTrue(true);
                 break;
@@ -115,13 +121,13 @@ class EnterpriseApplicationTests {
         String orderStatus2 = "Delivered";
 
         Order order2 = new Order();
-        order.setOrderId(orderId2);
-        order.setQuantity(quantity2);
-        order.setProductDescription(productDescription2);
-        order.setOrderDate(orderDate2);
-        order.setEstimatedArrival(estimatedArrival2);
-        order.setCarrier(carrier2);
-        order.setOrderStatus(orderStatus2);
+        order2.setOrderId(orderId2);
+        order2.setQuantity(quantity2);
+        order2.setProductDescription(productDescription2);
+        order2.setOrderDate(orderDate2);
+        order2.setEstimatedArrival(estimatedArrival2);
+        order2.setCarrier(carrier2);
+        order2.setOrderStatus(orderStatus2);
 
         orderService.Create(order);
         orderService.Create(order2);
