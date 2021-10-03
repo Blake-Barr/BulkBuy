@@ -16,4 +16,8 @@ public @Data class Order {
     private String carrier;
     private String orderStatus;
 
+    private int itemID;
+    private String customer;
+    private String customerAddress;
+
 }

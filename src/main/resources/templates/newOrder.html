@@ -1,18 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>New Order Form</title>
 </head>
 <body>
-New Order
+    Enter New Order
 
-<button id="toDashboard" class="float-left submit-button" >Return to home</button>
+    <script type="text/javascript">
+        document.getElementById("toDashboard").onclick = function () {
+            location.href = "start.html";
+        };
+    </script>
 
-<script type="text/javascript">
-    document.getElementById("toDashboard").onclick = function () {
-        location.href = "start.html";
-    };
-</script>
+    <p th:text="${order}" />
+
+    <form action="#" th:action="@{/saveOrder}" th:object="${order}" method="GET">
+        <label>Company</label><input type="text" name="customer" th:field="*{customer}"/>
+        <label>OrderID</label><input type="text" name="address" th:field="*{customerAddress}"/>
+        <label>OrderID</label><input type="number" name="itemNumber" th:field="*{itemID}"/>
+        <label>OrderID</label><input type="number" name="quantity" th:field="*{quantity}"/>
+        <button name="submit" type="submit" value="0">Submit</button>
+    </form>
+
+    <button id="toDashboard" class="float-left submit-button" >Return to home</button>
 </body>
 </html>
