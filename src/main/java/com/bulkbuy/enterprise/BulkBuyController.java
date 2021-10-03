@@ -15,4 +15,14 @@ public class BulkBuyController {
         return "start";
     }
 
+    @RequestMapping("/newOrder")
+    public String newOrder(){
+        return "newOrder";
+    }
+
+    @RequestMapping("/orderLookup")
+    public String orderLookup(){
+        return "orderLookup";
+    }
+
 }

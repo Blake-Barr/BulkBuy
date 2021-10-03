@@ -3,8 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <title>BulkBuy</title>
+
+    <script type="text/javascript">
+        document.getElementById("SearchOrder").onclick = function () {
+            location.href = "orderLookup.html";
+        };
+    </script>
+
 </head>
 <body>
 BulkBuy Dashboard
+
+
+<button id="PlaceOrder" class="float-left submit-button" >Place New Order</button>
+
+<script type="text/javascript">
+    document.getElementById("PlaceOrder").onclick = function () {
+        location.href = "newOrder.html";
+    };
+</script>
+
+<button id="SearchOrder" class="float-left submit-button" >Lookup Order</button>
+
+<script type="text/javascript">
+    document.getElementById("SearchOrder").onclick = function () {
+        location.href = "orderLookup.html";
+    };
+</script>
+
 </body>
 </html>
