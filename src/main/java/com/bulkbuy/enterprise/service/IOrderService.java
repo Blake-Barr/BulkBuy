@@ -17,10 +17,10 @@ public interface IOrderService {
 
     /**
      * Finds an order by its orderId attribute
-     * @param id the id to look for
+     * @param orderId the id to look for
      * @return the order with the specified id. If the order does not exist, returns null.
      */
-    Order findByOrderId(int id);
+    Order findByOrderId(int orderId);
 
     /**
      * Returns all orders in a List
