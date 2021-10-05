@@ -19,7 +19,7 @@ public class OrderService implements IOrderService {
      * @param order The order to be created
      */
     @Override
-    public void Create(Order order) {
+    public void create(Order order) {
 
         orders.add(order);
 
@@ -33,9 +33,8 @@ public class OrderService implements IOrderService {
     @Override
     public Order findByOrderId(int id) {
 
-        for (Order ord: orders
-             ) {
-            if(ord.getOrderId() == id)  {
+        for (Order ord: orders) {
+            if (ord.getOrderId() == id) {
                 return ord;
             }
         }

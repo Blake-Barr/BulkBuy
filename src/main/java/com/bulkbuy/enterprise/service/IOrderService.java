@@ -13,7 +13,7 @@ public interface IOrderService {
      * Creates an order and inserts it into the List
      * @param order The order to be created
      */
-    void Create(Order order);
+    void create(Order order);
 
     /**
      * Finds an order by its orderId attribute

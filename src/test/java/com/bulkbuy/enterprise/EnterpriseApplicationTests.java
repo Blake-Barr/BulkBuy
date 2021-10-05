@@ -58,7 +58,7 @@ class EnterpriseApplicationTests {
      * Confirm saving orders and pulling a full list of orders.
      */
     @Test
-    void confirmSavedOrder(){
+    void confirmSavedOrder() {
         int orderId = 52;
         int quantity = 5;
         String productDescription = "Plain Paper";
@@ -76,13 +76,13 @@ class EnterpriseApplicationTests {
         order.setCarrier(carrier);
         order.setOrderStatus(orderStatus);
 
-        orderService.Create(order);
+        orderService.create(order);
 
         List<Order> orders = orderService.getAllOrders();
-        for (Order ord:orders)
-        {
-            if (ord.getOrderId() == orderId && ord.getQuantity() == quantity && ord.getOrderDate().equals(orderDate))
-            {
+        for (Order ord:orders) {
+            if (ord.getOrderId() == orderId
+                    && ord.getQuantity() == quantity
+                    && ord.getOrderDate().equals(orderDate)) {
                 assertTrue(true);
                 break;
             }
@@ -93,8 +93,7 @@ class EnterpriseApplicationTests {
      * Verifies proper return of order object when searching by order ID.
      */
     @Test
-    void confirmFindByOrderId()
-    {
+    void confirmFindByOrderId() {
         int orderId = 52;
         int quantity = 5;
         String productDescription = "Plain Paper";
@@ -129,8 +128,8 @@ class EnterpriseApplicationTests {
         order2.setCarrier(carrier2);
         order2.setOrderStatus(orderStatus2);
 
-        orderService.Create(order);
-        orderService.Create(order2);
+        orderService.create(order);
+        orderService.create(order2);
 
         assertTrue(order2.equals(orderService.findByOrderId(53)));
     }
