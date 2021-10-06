@@ -1,28 +1,30 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>New Order Form</title>
 </head>
 <body>
     Enter New Order
+    <br/><br/>
 
-    <script type="text/javascript">
-        document.getElementById("toDashboard").onclick = function () {
-            location.href = "start.html";
-        };
-    </script>
-
-    <p th:text="${order}" />
-
-    <form action="#" th:action="@{/saveOrder}" th:object="${order}" method="GET">
+    <p> th:text="${order}" </p>
+    <br/><br/>
+    <form action="#" th:action="@{/saveOrder}" th:object="${order}" method="POST">
         <label>Company</label><input type="text" name="customer" th:field="*{customer}"/>
-        <label>OrderID</label><input type="text" name="address" th:field="*{customerAddress}"/>
-        <label>OrderID</label><input type="number" name="itemNumber" th:field="*{itemID}"/>
-        <label>OrderID</label><input type="number" name="quantity" th:field="*{quantity}"/>
+        <br/><br/>
+        <label>Customer Address</label><input type="text" name="address" th:field="*{customerAddress}"/>
+        <br/><br/>
+         <label>Item ID</label><input type="number" name="itemNumber" th:field="*{itemID}"/>
+        <br/><br/>
+         <label>Quantity</label><input type="number" name="quantity" th:field="*{quantity}"/>
+        <br/><br/>
         <button name="submit" type="submit" value="0">Submit</button>
     </form>
+    <br/><br/>
+    <form action="#" th:action="@{/}" method="get" >
+        <button id="toDashboard" class="float-left submit-button" >Return to home</button>
+    </form>
 
-    <button id="toDashboard" class="float-left submit-button" >Return to home</button>
 </body>
 </html>

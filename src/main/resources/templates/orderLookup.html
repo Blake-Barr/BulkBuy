@@ -5,14 +5,14 @@
     <title>Order Lookup</title>
 </head>
 <body>
-Order Lookup
 
-<button id="toDashboard" class="float-left submit-button" >Return to home</button>
-
-<script type="text/javascript">
-    document.getElementById("toDashboard").onclick = function () {
-        location.href = "start.html";
-    };
-</script>
+<div style="display: inline-block">
+    Order Lookup
+</div>
+<div style="display: inline-block">
+    <form action="#" th:action="@{/}" method="get" >
+        <button id="toDashboard" class="float-left submit-button" >Return to home</button>
+    </form>
+</div>
 </body>
 </html>
