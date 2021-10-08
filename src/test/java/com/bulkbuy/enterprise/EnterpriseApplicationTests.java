@@ -131,7 +131,7 @@ class EnterpriseApplicationTests {
         orderService.create(order);
         orderService.create(order2);
 
-        assertTrue(order2.equals(orderService.findByOrderId(53)));
+        assertEquals(order2, orderService.findByOrderId(53));
     }
 
 }
