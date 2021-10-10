@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
@@ -31,8 +32,8 @@ class EnterpriseApplicationTests {
         int orderId = 52;
         int quantity = 5;
         String productDescription = "Plain Paper";
-        Date orderDate = new Date(2021,10,1);
-        Date estimatedArrival = null;
+        LocalDate orderDate = LocalDate.of(2021,10,1);
+        LocalDate estimatedArrival = null;
         String carrier = "International Paper";
         String orderStatus = "Order Received";
 
@@ -62,8 +63,8 @@ class EnterpriseApplicationTests {
         int orderId = 52;
         int quantity = 5;
         String productDescription = "Plain Paper";
-        Date orderDate = new Date(2021,10,1);
-        Date estimatedArrival = null;
+        LocalDate orderDate = LocalDate.of(2021, 10, 01);
+        LocalDate estimatedArrival = null;
         String carrier = "International Paper";
         String orderStatus = "Order Received";
 
@@ -81,6 +82,7 @@ class EnterpriseApplicationTests {
         List<Order> orders = orderService.getAllOrders();
         for (Order ord:orders)
         {
+
             if (ord.getOrderId() == orderId && ord.getQuantity() == quantity && ord.getOrderDate().equals(orderDate))
             {
                 assertTrue(true);
@@ -98,8 +100,8 @@ class EnterpriseApplicationTests {
         int orderId = 52;
         int quantity = 5;
         String productDescription = "Plain Paper";
-        Date orderDate = new Date(2021,10,1);
-        Date estimatedArrival = null;
+        LocalDate orderDate = LocalDate.of(2021,10,1);
+        LocalDate estimatedArrival = null;
         String carrier = "International Paper";
         String orderStatus = "Order Received";
 
@@ -115,8 +117,8 @@ class EnterpriseApplicationTests {
         int orderId2 = 53;
         int quantity2 = 17;
         String productDescription2 = "Box of 60 Black Pens";
-        Date orderDate2 = new Date(2021,9,17);
-        Date estimatedArrival2 = new Date(2021,9,24);
+        LocalDate orderDate2 = LocalDate.of(2021,9,17);
+        LocalDate estimatedArrival2 = LocalDate.of(2021,9,24);
         String carrier2 = "Societe Bic";
         String orderStatus2 = "Delivered";
 

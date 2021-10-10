@@ -5,7 +5,7 @@
     <title>New Order Form</title>
 </head>
 <body>
-    Enter New Order
+<h1>Enter New Order</h1>
 
     <script type="text/javascript">
         document.getElementById("toDashboard").onclick = function () {
@@ -15,7 +15,7 @@
 
     <p th:text="${order}" />
 
-    <form action="#" th:action="@{/saveOrder}" th:object="${order}" method="GET">
+    <form action="#" th:action="@{/saveOrder}" th:object="${Order}" method="GET">
         <label>Company</label><input type="text" name="customer" th:field="*{customer}"/>
         <label>OrderID</label><input type="text" name="address" th:field="*{customerAddress}"/>
         <label>OrderID</label><input type="number" name="itemNumber" th:field="*{itemID}"/>
