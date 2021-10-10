@@ -135,4 +135,22 @@ class EnterpriseApplicationTests {
         assertTrue(order2.equals(orderService.findByOrderId(53)));
     }
 
+    //test whether there can be additional instructions added
+    //should be more tests added like this
+    //alot of this is ruled out with the tests above but still this would give methods to yous DAO classes
+    @Test
+    void additionalcomments(){
+
+        givennewcomments();
+        whencustomeraddscomments();
+        thencommentsaredisplayed();
+    }
+
+    private void whencustomeraddscomments() {
+    }
+
+    private void givennewcomments() {
+        //logic here
+    }
+
 }
