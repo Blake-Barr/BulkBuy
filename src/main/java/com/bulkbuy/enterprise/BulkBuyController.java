@@ -7,19 +7,29 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class BulkBuyController {
 
     /**
+     * @aurthor
      * Endpoint control handler
-     * @return
+     *
+     * @return start
      */
     @RequestMapping("/")
     public String index() {
         return "start";
     }
 
+    /**
+     *
+     * @return newOrder
+     */
     @RequestMapping("/newOrder")
     public String newOrder(){
         return "newOrder";
     }
 
+    /**
+     *
+     * @return orderLookup
+     */
     @RequestMapping("/orderLookup")
     public String orderLookup(){
         return "orderLookup";

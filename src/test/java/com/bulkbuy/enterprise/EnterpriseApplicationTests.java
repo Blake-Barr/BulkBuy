@@ -29,7 +29,7 @@ class EnterpriseApplicationTests {
     @Test
     void verifyOrderProperties() {
         int orderId = 52;
-        int quantity = 5;
+        int productQuantity = 5;
         String productDescription = "Plain Paper";
         Date orderDate = new Date(2021,10,1);
         Date estimatedArrival = null;
@@ -38,7 +38,7 @@ class EnterpriseApplicationTests {
 
         Order order = new Order();
         order.setOrderId(orderId);
-        order.setQuantity(quantity);
+        order.setProductQuantity(productQuantity);
         order.setProductDescription(productDescription);
         order.setOrderDate(orderDate);
         order.setEstimatedArrival(estimatedArrival);
@@ -46,7 +46,7 @@ class EnterpriseApplicationTests {
         order.setOrderStatus(orderStatus);
 
         assertEquals(orderId,order.getOrderId());
-        assertEquals(quantity,order.getQuantity());
+        assertEquals(productQuantity,order.getProductQuantity());
         assertEquals(productDescription,order.getProductDescription());
         assertEquals(orderDate,order.getOrderDate());
         assertEquals(estimatedArrival,order.getEstimatedArrival());
@@ -60,7 +60,7 @@ class EnterpriseApplicationTests {
     @Test
     void confirmSavedOrder(){
         int orderId = 52;
-        int quantity = 5;
+        int productQuantity = 5;
         String productDescription = "Plain Paper";
         Date orderDate = new Date(2021,10,1);
         Date estimatedArrival = null;
@@ -69,7 +69,7 @@ class EnterpriseApplicationTests {
 
         Order order = new Order();
         order.setOrderId(orderId);
-        order.setQuantity(quantity);
+        order.setProductQuantity(productQuantity);
         order.setProductDescription(productDescription);
         order.setOrderDate(orderDate);
         order.setEstimatedArrival(estimatedArrival);
@@ -81,7 +81,7 @@ class EnterpriseApplicationTests {
         List<Order> orders = orderService.getAllOrders();
         for (Order ord:orders)
         {
-            if (ord.getOrderId() == orderId && ord.getQuantity() == quantity && ord.getOrderDate().equals(orderDate))
+            if (ord.getOrderId() == orderId && ord.getProductQuantity() == productQuantity && ord.getOrderDate().equals(orderDate))
             {
                 assertTrue(true);
                 break;
@@ -96,7 +96,7 @@ class EnterpriseApplicationTests {
     void confirmFindByOrderId()
     {
         int orderId = 52;
-        int quantity = 5;
+        int productQuantity = 5;
         String productDescription = "Plain Paper";
         Date orderDate = new Date(2021,10,1);
         Date estimatedArrival = null;
@@ -105,7 +105,7 @@ class EnterpriseApplicationTests {
 
         Order order = new Order();
         order.setOrderId(orderId);
-        order.setQuantity(quantity);
+        order.setProductQuantity(productQuantity);
         order.setProductDescription(productDescription);
         order.setOrderDate(orderDate);
         order.setEstimatedArrival(estimatedArrival);
@@ -122,7 +122,7 @@ class EnterpriseApplicationTests {
 
         Order order2 = new Order();
         order2.setOrderId(orderId2);
-        order2.setQuantity(quantity2);
+        order2.setProductQuantity(quantity2);
         order2.setProductDescription(productDescription2);
         order2.setOrderDate(orderDate2);
         order2.setEstimatedArrival(estimatedArrival2);
