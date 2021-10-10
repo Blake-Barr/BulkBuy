@@ -3,33 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <title>BulkBuy</title>
-
-    <script type="text/javascript">
-        document.getElementById("SearchOrder").onclick = function () {
-            location.href = "orderLookup.html";
-        };
-    </script>
-
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
-BulkBuy Dashboard
+<div class="container">
+    <h1 class="display-3 mt-5">BulkBuy Dashboard</h1>
 
+<div class="row mt-5">
+<a id="PlaceOrder" class="float-left submit-button btn btn-lg btn-success" href="newOrder">Place New Order</a>
 
-<button id="PlaceOrder" class="float-left submit-button" >Place New Order</button>
-
-<script type="text/javascript">
-    document.getElementById("PlaceOrder").onclick = function () {
-        location.href = "newOrder.html";
-    };
-</script>
-
-<button id="SearchOrder" class="float-left submit-button" >Lookup Order</button>
-
+<a id="SearchOrder" class="float-left submit-button btn btn-lg btn-primary ml-3" href="orderLookup">Lookup Order</a>
+</div>
 <script type="text/javascript">
     document.getElementById("SearchOrder").onclick = function () {
         location.href = "orderLookup.html";
     };
 </script>
+</div>
 
 </body>
 </html>
