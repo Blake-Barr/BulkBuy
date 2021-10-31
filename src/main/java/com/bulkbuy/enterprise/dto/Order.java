@@ -17,7 +17,7 @@ public @Data class Order {
     private String orderStatus;
 
     private int itemID;
-    private String customer;
+    private String customerName;
     private String customerAddress;
 
 }
