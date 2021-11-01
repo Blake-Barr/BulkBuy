@@ -1,14 +1,14 @@
 package com.bulkbuy.enterprise.controller;
 import com.bulkbuy.enterprise.dto.Order;
+import com.bulkbuy.enterprise.service.IOrderService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class NavigationController {
+
+    IOrderService orderService;
 
     /**
      * Endpoint control handler
@@ -39,10 +39,19 @@ public class NavigationController {
         return "orderLookup";
     }
 
-    @PostMapping(value="/saveOrder")
-    public String saveOrder(@ModelAttribute("order") Order order, Model model) {
+    @PostMapping(value="/saveOrder", consumes = "application/json", produces = "application/json")
+    public Order saveOrder(@RequestBody Order order) throws Exception {
         Order newOrder = null;
-        return "index";
+        try {
+            newOrder = orderService.create(order);
+        }
+        catch (Exception ex)
+        {
+            //TODO: LOGGING/Exception handling
+            throw ex;
+        }
+
+        return newOrder;
     }
 
     @RequestMapping("/orderLookup")

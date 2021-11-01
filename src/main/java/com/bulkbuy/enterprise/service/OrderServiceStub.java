@@ -1,6 +1,8 @@
 package com.bulkbuy.enterprise.service;
 
+import com.bulkbuy.enterprise.dao.IOrderDAO;
 import com.bulkbuy.enterprise.dto.Order;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -12,17 +14,28 @@ import java.util.List;
 @Service
 public class OrderServiceStub implements IOrderService {
 
-    private ArrayList<Order> orders = new ArrayList<>();
+    @Autowired
+    private IOrderDAO orderDAO;
+
+    public OrderServiceStub(){
+
+    }
+
+
+    public OrderServiceStub(IOrderDAO orderDAO) {
+        this.orderDAO = orderDAO;
+    }
+
+
 
     /**
      * Creates an order and inserts it into the orders List
      * @param order The order to be created
      */
     @Override
-    public void create(Order order) {
-
-        orders.add(order);
-
+    public Order create(Order order)  {
+        Order newOrder = orderDAO.create(order);
+        return newOrder;
     }
 
     /**
@@ -32,13 +45,7 @@ public class OrderServiceStub implements IOrderService {
      */
     @Override
     public Order findByOrderId(int id) {
-
-        for (Order ord: orders) {
-            if (ord.getOrderId() == id) {
-                return ord;
-            }
-        }
-        return null;
+        return orderDAO.findByOrderId(id);
     }
 
     /**
@@ -47,6 +54,7 @@ public class OrderServiceStub implements IOrderService {
      */
     @Override
     public List<Order> getAllOrders() {
-        return orders;
+
+        return orderDAO.getAllOrders();
     }
 }

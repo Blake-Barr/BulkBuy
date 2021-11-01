@@ -1,10 +1,17 @@
 package com.bulkbuy.enterprise;
 
+import com.bulkbuy.enterprise.dao.IOrderDAO;
+import com.bulkbuy.enterprise.dao.OrderDAO;
+import com.bulkbuy.enterprise.dao.OrderDAOStub;
 import com.bulkbuy.enterprise.dto.Order;
 import com.bulkbuy.enterprise.service.IOrderService;
+import com.bulkbuy.enterprise.service.OrderService;
+import com.bulkbuy.enterprise.service.OrderServiceStub;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -17,11 +24,17 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 class EnterpriseApplicationTests {
 
     @Autowired
-    IOrderService orderService;
+    private IOrderService orderService;
+    private Order order = new Order();
+
+
+    private IOrderDAO orderDAO = new OrderDAOStub();
+
 
     @Test
     void contextLoads() {
     }
+
 
     /**
      * Test the properties of the DTO for getting and setting values.
@@ -58,7 +71,7 @@ class EnterpriseApplicationTests {
      * Confirm saving orders and pulling a full list of orders.
      */
     @Test
-    void confirmSavedOrder() {
+    void confirmSavedOrder() throws Exception {
         int orderId = 52;
         int quantity = 5;
         String productDescription = "Plain Paper";
@@ -93,7 +106,8 @@ class EnterpriseApplicationTests {
      * Verifies proper return of order object when searching by order ID.
      */
     @Test
-    void confirmFindByOrderId() {
+    void confirmFindByOrderId() throws Exception {
+
         int orderId = 52;
         int quantity = 5;
         String productDescription = "Plain Paper";
@@ -128,10 +142,11 @@ class EnterpriseApplicationTests {
         order2.setCarrier(carrier2);
         order2.setOrderStatus(orderStatus2);
 
-        orderService.create(order);
-        orderService.create(order2);
+        Order returnedOrder = orderService.create(order);
+        Order returnedOrder2 = orderService.create(order2);
 
-        assertEquals(order2, orderService.findByOrderId(53));
+        Order orderLookup = orderService.findByOrderId(orderId2);
+        assertEquals(order2, orderLookup);
     }
 
 }
