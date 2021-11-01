@@ -4,32 +4,29 @@ import com.bulkbuy.enterprise.dto.Order;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Repository
 public class OrderDAOStub implements IOrderDAO{
 
-    private List<Order> allOrders = new ArrayList<Order>();
+    private Map<Integer,Order> allOrders = new HashMap<>();
 
     @Override
     public Order create(Order order)  {
-        allOrders.add(order);
+        allOrders.put(order.getOrderId(),order);
         return order;
     }
 
     @Override
     public List<Order> getAllOrders() {
-        return allOrders;
+        List<Order> returnOrders = new ArrayList<Order>(allOrders.values());
+        return returnOrders;
     }
 
     @Override
     public Order findByOrderId(int id)  {
-        for (Order ord: getAllOrders()) {
-            if (ord.getOrderId() == id) {
-                return ord;
-            }
-        }
-        //Maybe throw an exception?
-        return null;
+        return allOrders.get(id);
     }
 }
