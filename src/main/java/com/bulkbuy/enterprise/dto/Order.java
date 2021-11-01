@@ -19,6 +19,4 @@ public @Data class Order {
     private String customerName;
     private String customerAddress;
 
-
-
 }

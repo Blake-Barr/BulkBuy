@@ -10,6 +10,6 @@ public interface IOrderDAO {
 
     List<Order> getAllOrders();
 
-
     Order findByOrderId(int id);
+
 }
