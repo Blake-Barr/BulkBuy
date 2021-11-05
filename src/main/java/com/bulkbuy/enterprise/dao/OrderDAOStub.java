@@ -15,8 +15,18 @@ public class OrderDAOStub implements IOrderDAO{
 
     @Override
     public Order create(Order order)  {
-        int tempOrderId = allOrders.size() + 1;
-        order.setOrderId(tempOrderId);
+        if(order.getOrderId() <= 0){
+            List<Order> allOrderList = new ArrayList(allOrders.values());
+            int lastOrderId = 0;
+            for(int i = 0; i < allOrderList.size(); i++){
+                int indexOrderId = allOrderList.get(i).getOrderId();
+                if(indexOrderId > lastOrderId){
+                    lastOrderId = indexOrderId;
+                }
+            }
+            int tempOrderId = lastOrderId + 1;
+            order.setOrderId(tempOrderId);
+        }
         allOrders.put(order.getOrderId(), order);
         return order;
     }
