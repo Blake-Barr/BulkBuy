@@ -15,8 +15,13 @@ public @Data class Order {
     private Date estimatedArrival;
     private String carrier;
     private String orderStatus;
-    private int itemID;
+    private int itemId;
     private String customerName;
-    private String customerAddress;
+    private String customerAddress1;
+    private String customerAddress2;
+    private String customerCity;
+    private String customerState;
+    private String customerZip;
+    private String deliveryRequest;
 
 }

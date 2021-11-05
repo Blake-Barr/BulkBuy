@@ -1,6 +1,7 @@
 package com.bulkbuy.enterprise.controller;
 import com.bulkbuy.enterprise.dto.Order;
 import com.bulkbuy.enterprise.service.IOrderService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -8,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 public class NavigationController {
 
+    @Autowired
     IOrderService orderService;
 
     /**
@@ -30,6 +32,7 @@ public class NavigationController {
     @GetMapping("/placeOrder")
     public String getPlaceOrder(Model model){
         model.addAttribute("activePage", "placeOrder");
+        model.addAttribute("saveOrder", new Order());
         return "placeOrder";
     }
 
@@ -39,19 +42,18 @@ public class NavigationController {
         return "orderLookup";
     }
 
-    @PostMapping(value="/saveOrder", consumes = "application/json", produces = "application/json")
-    public Order saveOrder(@RequestBody Order order) throws Exception {
+    @PostMapping(value="/saveOrder")
+    public String saveOrder(@ModelAttribute("saveOrder") Order savedOrder, Model model) {
         Order newOrder = null;
         try {
-            newOrder = orderService.create(order);
+            newOrder = orderService.create(savedOrder);
         }
         catch (Exception ex)
         {
             //TODO: LOGGING/Exception handling
             throw ex;
         }
-
-        return newOrder;
+        return "index";
     }
 
     @RequestMapping("/orderLookup")

@@ -19,30 +19,30 @@
     </div>
 
     <div class="container outerContentWrapper">
-        <form>
+        <form action="#" th:action="@{/saveOrder}" th:object="${saveOrder}" method="post">
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="inlineFormInputName">Name</label>
-                    <input type="email" class="form-control" id="inlineFormInputName" placeholder="Company or name">
+                    <input type="text" class="form-control" id="inlineFormInputName" placeholder="Company or name" th:field="*{customerName}">
                 </div>
             </div>
             <div class="form-group">
                 <label for="inputAddress">Address</label>
-                <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+                <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St" th:field="*{customerAddress1}">
             </div>
             <div class="form-group">
                 <label for="inputAddress2">Address 2</label>
-                <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+                <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor" th:field="*{customerAddress2}">
             </div>
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="inputCity">City</label>
-                    <input type="text" class="form-control" id="inputCity">
+                    <input type="text" class="form-control" id="inputCity" th:field="*{customerCity}">
                 </div>
                 <div class="form-group col-md-4">
                     <label for="inputState">State</label>
-                    <select id="inputState" class="form-control">
-                        <option selected>Choose...</option>
+                    <select id="inputState" class="form-control" th:field="*{customerState}">
+                        <option value="Choose" selected>Choose...</option>
                         <option value="AL">Alabama</option>
                         <option value="AK">Alaska</option>
                         <option value="AZ">Arizona</option>
@@ -98,24 +98,24 @@
                 </div>
                 <div class="form-group col-md-2">
                     <label for="inputZip">Zip</label>
-                    <input type="text" class="form-control" id="inputZip">
+                    <input type="text" class="form-control" id="inputZip" th:field="*{customerZip}">
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="itemNumber">Add Item Number</label>
-                    <input type="text" class="form-control" id="itemNumber" placeholder="Item number">
+                    <input type="text" class="form-control" id="itemNumber" placeholder="Item number" th:field="*{itemId}">
                 </div>
                 <div class="form-group col-md-6">
                     <label for="quantity">Enter Quantity</label>
-                    <input type="text" class="form-control" id="quantity" placeholder="Quantity">
+                    <input type="text" class="form-control" id="quantity" placeholder="Quantity" th:field="*{quantity}">
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="inlineFormCustomSelectPref">Shipping Vendor</label>
-                    <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
-                        <option selected>Choose...</option>
+                    <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref" th:field="*{carrier}">
+                        <option value="Choose" selected>Choose...</option>
                         <option value="1">USPS</option>
                         <option value="2">FedEx</option>
                         <option value="3">UPS</option>
@@ -125,7 +125,7 @@
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="itemNumber">Additional Notes</label>
-                    <input type="text" class="form-control" id="deliveryRequests" placeholder="Delivery Requests">
+                    <input type="text" class="form-control" id="deliveryRequests" placeholder="Delivery Requests" th:field="*{deliveryRequest}">
                 </div>
             </div>
             <button type="submit" class="btn btn-primary">Place Order</button>
