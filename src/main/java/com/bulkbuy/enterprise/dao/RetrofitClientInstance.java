@@ -6,7 +6,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class RetrofitClientInstance {
 
     private static Retrofit retrofit;
-    //NEED TO FIND JSON SOURCE
+    //TODO: NEED TO FIND JSON SOURCE
     private static String BASE_URL = "JSON URL SOURCE";
 
 
