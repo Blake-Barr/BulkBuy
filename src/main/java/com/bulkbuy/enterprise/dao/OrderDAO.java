@@ -1,7 +1,7 @@
 package com.bulkbuy.enterprise.dao;
 
 import com.bulkbuy.enterprise.dto.Order;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
@@ -11,6 +11,7 @@ import java.util.List;
  * Handles business logic for order Data
  */
 @Repository
+@Profile("TBA")
 public class OrderDAO implements IOrderDAO {
 
     OrderRepository orderRepository;
@@ -22,8 +23,7 @@ public class OrderDAO implements IOrderDAO {
      */
     @Override
     public Order create(Order order) {
-        Order created = orderRepository.save(order);
-        return created;
+        return orderRepository.save(order);
     }
 
     /***

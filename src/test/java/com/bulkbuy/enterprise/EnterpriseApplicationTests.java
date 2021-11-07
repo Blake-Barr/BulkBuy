@@ -1,19 +1,14 @@
 package com.bulkbuy.enterprise;
 
 import com.bulkbuy.enterprise.dao.IOrderDAO;
-import com.bulkbuy.enterprise.dao.OrderDAO;
 import com.bulkbuy.enterprise.dao.OrderDAOStub;
 import com.bulkbuy.enterprise.dto.Order;
 import com.bulkbuy.enterprise.service.IOrderService;
-import com.bulkbuy.enterprise.service.OrderService;
-import com.bulkbuy.enterprise.service.OrderServiceStub;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
 
-import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -44,7 +39,7 @@ class EnterpriseApplicationTests {
         int orderId = 52;
         int quantity = 5;
         String productDescription = "Plain Paper";
-        Date orderDate = new Date(2021,10,1);
+        Date orderDate = new Date(2021, Calendar.NOVEMBER,1);
         Date estimatedArrival = null;
         String carrier = "International Paper";
         String orderStatus = "Order Received";
@@ -75,7 +70,7 @@ class EnterpriseApplicationTests {
         int orderId = 52;
         int quantity = 5;
         String productDescription = "Plain Paper";
-        Date orderDate = new Date(2021,10,1);
+        Date orderDate = new Date(2021, Calendar.NOVEMBER,1);
         Date estimatedArrival = null;
         String carrier = "International Paper";
         String orderStatus = "Order Received";
@@ -111,7 +106,7 @@ class EnterpriseApplicationTests {
         int orderId = 52;
         int quantity = 5;
         String productDescription = "Plain Paper";
-        Date orderDate = new Date(2021,10,1);
+        Date orderDate = new Date(2021, Calendar.NOVEMBER,1);
         Date estimatedArrival = null;
         String carrier = "International Paper";
         String orderStatus = "Order Received";
@@ -128,8 +123,8 @@ class EnterpriseApplicationTests {
         int orderId2 = 53;
         int quantity2 = 17;
         String productDescription2 = "Box of 60 Black Pens";
-        Date orderDate2 = new Date(2021,9,17);
-        Date estimatedArrival2 = new Date(2021,9,24);
+        Date orderDate2 = new Date(2021, Calendar.OCTOBER,17);
+        Date estimatedArrival2 = new Date(2021, Calendar.OCTOBER,24);
         String carrier2 = "Societe Bic";
         String orderStatus2 = "Delivered";
 
@@ -146,7 +141,7 @@ class EnterpriseApplicationTests {
         Order returnedOrder2 = orderService.create(order2);
 
         Order orderLookup = orderService.findByOrderId(orderId2);
-        assertEquals(order2, orderLookup);
+        assertEquals(returnedOrder2, orderLookup);
     }
 
 }

@@ -5,7 +5,6 @@ import com.bulkbuy.enterprise.dto.Order;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -34,8 +33,7 @@ public class OrderServiceStub implements IOrderService {
      */
     @Override
     public Order create(Order order)  {
-        Order newOrder = orderDAO.create(order);
-        return newOrder;
+        return orderDAO.create(order);
     }
 
     /**

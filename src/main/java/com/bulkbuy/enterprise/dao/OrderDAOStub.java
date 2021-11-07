@@ -21,8 +21,7 @@ public class OrderDAOStub implements IOrderDAO{
 
     @Override
     public List<Order> getAllOrders() {
-        List<Order> returnOrders = new ArrayList<Order>(allOrders.values());
-        return returnOrders;
+        return new ArrayList<Order>(allOrders.values());
     }
 
     @Override

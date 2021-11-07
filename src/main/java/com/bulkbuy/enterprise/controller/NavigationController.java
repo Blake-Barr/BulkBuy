@@ -55,7 +55,7 @@ public class NavigationController {
     }
 
     @RequestMapping("/orderLookup")
-    public String orderLookup(){
+    public String lookupOrder(){
         return "orderLookup";
     }
 
