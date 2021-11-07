@@ -1,8 +1,10 @@
-.footer {
+.footer-content{
     background-color: #343a40!important;
     color: #fff!important;
-    padding: 4rem 2rem;
-    margin-bottom: 2rem;
     display: block;
     box-sizing: border-box;
+    position: relative;
+}
+.footer{
+    padding-top: 20px;
 }

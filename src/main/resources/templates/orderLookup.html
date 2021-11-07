@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org" class="h-100">
 <head>
     <meta charset="UTF-8">
-    <title>BulkBuy</title>
+    <title>Order Lookup</title>
     <link rel="stylesheet"
           href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <link rel="stylesheet" th:href="@{main.css}" />
@@ -23,10 +23,6 @@
 <!-- Stuff goes here eventually -->
 </div>
 
-<div class="container">
-    <div th:replace="~{fragments/footer :: footer}"></div>
-</div>
-
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs="
         crossorigin="anonymous">
@@ -36,4 +32,7 @@
         src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js">
 </script>
 </body>
+<footer class="footer">
+    <div th:replace="~{fragments/footer :: footer}"></div>
+</footer>
 </html>
