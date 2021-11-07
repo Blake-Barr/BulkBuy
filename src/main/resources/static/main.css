@@ -6,3 +6,11 @@
     display: block;
     box-sizing: border-box;
 }
+
+.outerContentWrapper{
+    display: block;
+    position: relative;
+    max-height: 80vh;
+    height: 53vh;
+    overflow-y: scroll;
+}
