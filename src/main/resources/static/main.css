@@ -3,6 +3,23 @@
     color: #fff!important;
     padding: 4rem 2rem;
     margin-bottom: 2rem;
+    margin-bottom: 0;
     display: block;
     box-sizing: border-box;
+}
+
+
+.container-footer{
+    max-width: none;
+
+}
+
+
+.fixed-bottom{
+    position: static;
+}
+
+
+#placeOrder{
+    margin-bottom: 20px;
 }

@@ -1,15 +1,18 @@
 package com.bulkbuy.enterprise.controller;
 import com.bulkbuy.enterprise.dto.Order;
 import com.bulkbuy.enterprise.service.IOrderService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
 
 @Controller
 public class NavigationController {
 
     IOrderService orderService;
-
+    Logger log = LoggerFactory.getLogger(this.getClass());
     /**
      * Endpoint control handler
      * @return
@@ -48,6 +51,7 @@ public class NavigationController {
         catch (Exception ex)
         {
             //TODO: LOGGING/Exception handling
+            log.error(ex.getMessage());
             throw ex;
         }
 
