@@ -29,7 +29,9 @@ public class NavigationController {
 
     @GetMapping("/placeOrder")
     public String getPlaceOrder(Model model){
+        Order order = new Order();
         model.addAttribute("activePage", "placeOrder");
+        model.addAttribute(order);
         return "placeOrder";
     }
 

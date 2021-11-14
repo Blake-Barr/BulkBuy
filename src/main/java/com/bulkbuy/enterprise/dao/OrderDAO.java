@@ -2,9 +2,14 @@ package com.bulkbuy.enterprise.dao;
 
 import com.bulkbuy.enterprise.dto.Order;
 import org.springframework.beans.factory.annotation.Autowired;
+
+import java.time.LocalDate;
+import java.util.Calendar;
 import org.springframework.stereotype.Repository;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /***
@@ -22,6 +27,16 @@ public class OrderDAO implements IOrderDAO {
      */
     @Override
     public Order create(Order order) {
+        Date orderDate = new Date();
+        order.setOrderDate(orderDate);
+
+        Calendar c = Calendar.getInstance();
+        c.setTime(orderDate);
+        c.add(Calendar.DAY_OF_MONTH, 5);
+
+        Date arrivalDate = c.getTime();
+        order.setEstimatedArrival(arrivalDate);
+
         Order created = orderRepository.save(order);
         return created;
     }

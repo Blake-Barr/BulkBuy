@@ -25,16 +25,16 @@
 </main>
 
 <div class="container">
-    <form action="#" th:action="@{/saveOrder}">
+    <form action="#" th:action="@{/saveOrder}" th:object="${order}" method="GET">
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="inlineFormInputName">Name</label>
-                <input type="email" class="form-control" id="inlineFormInputName" placeholder="Company or name">
+                <input type="text" name="name" th:field="*{customerName}" class="form-control" id="inlineFormInputName" placeholder="Company or name">
             </div>
         </div>
         <div class="form-group">
             <label for="inputAddress">Address</label>
-            <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+            <input type="text" name="customerAddress" th:field="*{customerAddress}" class="form-control" id="inputAddress" placeholder="1234 Main St">
         </div>
         <div class="form-group">
             <label for="inputAddress2">Address 2</label>
@@ -110,17 +110,17 @@
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="itemNumber">Add Item Number</label>
-                <input type="text" class="form-control" id="itemNumber" placeholder="Item number">
+                <input type="text" name="itemID" th:field="*{itemID}" class="form-control" id="itemNumber" placeholder="Item number">
             </div>
             <div class="form-group col-md-6">
                 <label for="quantity">Enter Quantity</label>
-                <input type="text" class="form-control" id="quantity" placeholder="Quantity">
+                <input type="text" name="quantity" th:field="*{quantity}" class="form-control" id="quantity" placeholder="Quantity">
             </div>
         </div>
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="inlineFormCustomSelectPref">Shipping Vendor</label>
-                <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+                <select class="custom-select my-1 mr-sm-2" name="carrier" th:field="*{carrier}" id="inlineFormCustomSelectPref">
                     <option selected>Choose...</option>
                     <option value="1">USPS</option>
                     <option value="2">FedEx</option>
@@ -131,10 +131,10 @@
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="itemNumber">Additional Notes</label>
-                <input type="text" class="form-control" id="deliveryRequests" placeholder="Delivery Requests">
+                <input type="text" name="productDescription" th:field="*{productDescription}" class="form-control" id="deliveryRequests" placeholder="Delivery Requests">
             </div>
         </div>
-        <button type="submit" class="btn btn-primary">Place Order</button>
+        <button name="submit" type="submit" class="btn btn-primary" value="0">Place Order</button>
     </form>
 </div>
 <div class="container">
