@@ -20,7 +20,11 @@
 </main>
 
 <div class="container">
-<!-- Stuff goes here eventually -->
+    <div id="orders">
+        <ul class="list-group" th:each="order : ${allOrders}">
+            <li class="list-group-item"><div th:text="${order}"></div></li>
+        </ul>
+    </div>
 </div>
 
 <div class="container">

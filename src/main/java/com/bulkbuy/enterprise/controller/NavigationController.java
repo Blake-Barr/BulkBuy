@@ -3,14 +3,20 @@ import com.bulkbuy.enterprise.dto.Order;
 import com.bulkbuy.enterprise.service.IOrderService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.Banner;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class NavigationController {
 
     Logger log = LoggerFactory.getLogger((this.getClass()));
+    @Autowired
     IOrderService orderService;
 
     /**
@@ -41,19 +47,17 @@ public class NavigationController {
         return "placeOrder";
     }
 
-    @GetMapping("/orderLookup")
-    public String getOrderLookup(Model model){
-        log.debug("Order lookup endpoint reached");
-        model.addAttribute("activePage", "orderLookup");
-        return "orderLookup";
-    }
 
-    @PostMapping(value="/saveOrder", consumes = "application/json", produces = "application/json")
-    public Order saveOrder(@RequestBody Order order) throws Exception {
+    @RequestMapping(value = "/saveOrder", method = RequestMethod.POST)
+    public String saveOrder(@ModelAttribute("order") Order order, BindingResult result, ModelMap model) throws Exception {
+
         log.debug("Save order endpoint reached");
-        Order newOrder = null;
         try {
-            newOrder = orderService.create(order);
+            if(result.hasErrors())
+            {
+                throw new Exception("Form returned with error");
+            }
+            var newOrder = orderService.create(order);
             log.info("New order created successfully");
         }
         catch (Exception ex)
@@ -62,12 +66,21 @@ public class NavigationController {
             throw ex;
         }
 
-        return newOrder;
+        return "index";
     }
 
     @RequestMapping("/orderLookup")
-    public String orderLookup(){
-        return "orderLookup";
+    public ModelAndView orderLookup() {
+        ModelAndView modelAndView = new ModelAndView();
+
+        try {
+            Iterable<Order> allOrders = orderService.getAllOrders();
+            modelAndView.setViewName("orderLookup");
+            modelAndView.addObject("allOrders", allOrders);
+        } catch (Exception ex) {
+            log.error("Error when trying to retrieve orders", ex);
+        }
+        return modelAndView;
     }
 
 }
