@@ -40,4 +40,14 @@ public class OrderService implements IOrderService{
     public List<Order> getAllOrders() {
         return orderDAO.getAllOrders();
     }
+
+    @Override
+    public void setOrderDAO(IOrderDAO orderDAO) {
+
+    }
+
+    @Override
+    public IOrderDAO getOrderDAO() {
+        return null;
+    }
 }

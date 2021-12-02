@@ -57,4 +57,14 @@ public class OrderServiceStub implements IOrderService {
 
         return orderDAO.getAllOrders();
     }
+
+    @Override
+    public void setOrderDAO(IOrderDAO orderDAO) {
+        this.orderDAO=orderDAO;
+    }
+
+    @Override
+    public IOrderDAO getOrderDAO() {
+        return orderDAO;
+    }
 }

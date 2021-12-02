@@ -1,5 +1,6 @@
 package com.bulkbuy.enterprise.service;
 
+import com.bulkbuy.enterprise.dao.IOrderDAO;
 import com.bulkbuy.enterprise.dto.Order;
 
 import java.util.List;
@@ -27,4 +28,8 @@ public interface IOrderService {
      * @return a list of all orders collected
      */
     List<Order> getAllOrders();
+
+    void setOrderDAO(IOrderDAO orderDAO);
+    IOrderDAO getOrderDAO();
+
 }

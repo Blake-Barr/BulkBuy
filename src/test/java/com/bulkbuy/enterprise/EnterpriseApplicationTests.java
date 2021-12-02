@@ -1,12 +1,9 @@
 package com.bulkbuy.enterprise;
 
 import com.bulkbuy.enterprise.dao.IOrderDAO;
-import com.bulkbuy.enterprise.dao.OrderDAO;
-import com.bulkbuy.enterprise.dao.OrderDAOStub;
 import com.bulkbuy.enterprise.dto.Order;
 import com.bulkbuy.enterprise.service.IOrderService;
-import com.bulkbuy.enterprise.service.OrderService;
-import com.bulkbuy.enterprise.service.OrderServiceStub;
+import org.junit.Before;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,9 +24,14 @@ class EnterpriseApplicationTests {
     private IOrderService orderService;
     private Order order = new Order();
 
+    @MockBean
+    private IOrderDAO orderDAO;
 
-    private IOrderDAO orderDAO = new OrderDAOStub();
-
+    @Before
+    public void setup() throws Exception {
+        Mockito.when(orderDAO.create(order)).thenReturn(order);
+        orderService.setOrderDAO(orderDAO);
+    }
 
     @Test
     void contextLoads() {

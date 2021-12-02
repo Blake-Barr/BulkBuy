@@ -5,6 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import java.time.LocalDate;
 import java.util.Calendar;
+
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
 import java.text.SimpleDateFormat;
@@ -15,9 +17,10 @@ import java.util.List;
 /***
  * Handles business logic for order Data
  */
-@Repository
+@Repository("orderDAO")
 public class OrderDAO implements IOrderDAO {
 
+    @Autowired
     OrderRepository orderRepository;
 
     /***
