@@ -4,6 +4,10 @@ import com.bulkbuy.enterprise.service.IOrderService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -114,6 +118,19 @@ public class NavigationController {
             throw ex;
         }
         return modelAndView;
+    }
+
+    /**
+     * Endpoint that returns JSON for a Bulk Order
+     * @param id the Bulk Order ID
+     * @return JSON for the specified Bulk Order
+     */
+    @GetMapping("/order/{id}/")
+    public ResponseEntity orderByID(@PathVariable("id") int id) {
+        Bulk_Order foundSpecimen = orderService.findByOrderId(id);
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+        return new ResponseEntity(foundSpecimen, headers, HttpStatus.OK);
     }
 
 }
