@@ -1,6 +1,6 @@
 package com.bulkbuy.enterprise.dao;
 
-import com.bulkbuy.enterprise.dto.Order;
+import com.bulkbuy.enterprise.dto.Bulk_Order;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.time.LocalDate;
@@ -29,7 +29,7 @@ public class OrderDAO implements IOrderDAO {
      * @return the created order
      */
     @Override
-    public Order create(Order order) {
+    public Bulk_Order create(Bulk_Order order) {
         Date orderDate = new Date();
         order.setOrderDate(orderDate);
 
@@ -40,7 +40,9 @@ public class OrderDAO implements IOrderDAO {
         Date arrivalDate = c.getTime();
         order.setEstimatedArrival(arrivalDate);
 
-        Order created = orderRepository.save(order);
+        order.setOrderStatus("Received Order");
+
+        Bulk_Order created = orderRepository.save(order);
         return created;
     }
 
@@ -49,11 +51,11 @@ public class OrderDAO implements IOrderDAO {
      * @return a list containing all orders
      */
     @Override
-    public List<Order> getAllOrders()   {
-        List<Order> allOrders = new ArrayList<>();
-        Iterable<Order> orders = orderRepository.findAll();
+    public List<Bulk_Order> getAllOrders()   {
+        List<Bulk_Order> allOrders = new ArrayList<>();
+        Iterable<Bulk_Order> orders = orderRepository.findAll();
 
-        for(Order order : orders)   {
+        for(Bulk_Order order : orders)   {
             allOrders.add(order);
         }
         return allOrders;
@@ -65,7 +67,7 @@ public class OrderDAO implements IOrderDAO {
      * @return the order with the specified id
      */
     @Override
-    public Order findByOrderId(int id)    {
+    public Bulk_Order findByOrderId(int id)    {
         return orderRepository.findById(id).get();
     }
 

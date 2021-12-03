@@ -1,5 +1,5 @@
 package com.bulkbuy.enterprise.controller;
-import com.bulkbuy.enterprise.dto.Order;
+import com.bulkbuy.enterprise.dto.Bulk_Order;
 import com.bulkbuy.enterprise.service.IOrderService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -41,7 +41,7 @@ public class NavigationController {
     @GetMapping("/placeOrder")
     public String getPlaceOrder(Model model){
         log.debug("Place order endpoint reached");
-        Order order = new Order();
+        Bulk_Order order = new Bulk_Order();
         model.addAttribute("activePage", "placeOrder");
         model.addAttribute(order);
         return "placeOrder";
@@ -49,15 +49,16 @@ public class NavigationController {
 
 
     @RequestMapping(value = "/saveOrder", method = RequestMethod.POST)
-    public String saveOrder(@ModelAttribute("order") Order order, BindingResult result, ModelMap model) throws Exception {
+    public String saveOrder(@ModelAttribute("order") Bulk_Order order, BindingResult result, ModelMap model) throws Exception {
 
         log.debug("Save order endpoint reached");
+
         try {
             if(result.hasErrors())
             {
                 throw new Exception("Form returned with error");
             }
-            var newOrder = orderService.create(order);
+            Bulk_Order newOrder = orderService.create(order);
             log.info("New order created successfully");
         }
         catch (Exception ex)
@@ -69,18 +70,22 @@ public class NavigationController {
         return "index";
     }
 
-    @RequestMapping("/orderLookup")
-    public ModelAndView orderLookup() {
-        ModelAndView modelAndView = new ModelAndView();
+    @RequestMapping(value = "/orderLookup/{id}", method = RequestMethod.POST)
+    public Bulk_Order orderLookup(@PathVariable("id") int id) {
+
+        Bulk_Order order = new Bulk_Order();
 
         try {
-            Iterable<Order> allOrders = orderService.getAllOrders();
-            modelAndView.setViewName("orderLookup");
-            modelAndView.addObject("allOrders", allOrders);
+            order = orderService.findByOrderId(id);
         } catch (Exception ex) {
-            log.error("Error when trying to retrieve orders", ex);
+            log.error("Error when trying to retrieve order", ex);
         }
-        return modelAndView;
+
+        if(order.getOrderId() != id) {
+            log.info("Order of id " + id + " was not found");
+        }
+
+        return order;
     }
 
 }

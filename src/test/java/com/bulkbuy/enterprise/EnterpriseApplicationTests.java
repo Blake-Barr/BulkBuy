@@ -1,7 +1,7 @@
 package com.bulkbuy.enterprise;
 
 import com.bulkbuy.enterprise.dao.IOrderDAO;
-import com.bulkbuy.enterprise.dto.Order;
+import com.bulkbuy.enterprise.dto.Bulk_Order;
 import com.bulkbuy.enterprise.service.IOrderService;
 import org.junit.Before;
 import org.junit.jupiter.api.Test;
@@ -22,7 +22,7 @@ class EnterpriseApplicationTests {
 
     @Autowired
     private IOrderService orderService;
-    private Order order = new Order();
+    private Bulk_Order order = new Bulk_Order();
 
     @MockBean
     private IOrderDAO orderDAO;
@@ -51,7 +51,7 @@ class EnterpriseApplicationTests {
         String carrier = "International Paper";
         String orderStatus = "Order Received";
 
-        Order order = new Order();
+        Bulk_Order order = new Bulk_Order();
         order.setOrderId(orderId);
         order.setQuantity(quantity);
         order.setProductDescription(productDescription);
@@ -82,7 +82,7 @@ class EnterpriseApplicationTests {
         String carrier = "International Paper";
         String orderStatus = "Order Received";
 
-        Order order = new Order();
+        Bulk_Order order = new Bulk_Order();
         order.setOrderId(orderId);
         order.setQuantity(quantity);
         order.setProductDescription(productDescription);
@@ -93,8 +93,8 @@ class EnterpriseApplicationTests {
 
         orderService.create(order);
 
-        List<Order> orders = orderService.getAllOrders();
-        for (Order ord:orders) {
+        List<Bulk_Order> orders = orderService.getAllOrders();
+        for (Bulk_Order ord:orders) {
             if (ord.getOrderId() == orderId
                     && ord.getQuantity() == quantity
                     && ord.getOrderDate().equals(orderDate)) {
@@ -118,7 +118,7 @@ class EnterpriseApplicationTests {
         String carrier = "International Paper";
         String orderStatus = "Order Received";
 
-        Order order = new Order();
+        Bulk_Order order = new Bulk_Order();
         order.setOrderId(orderId);
         order.setQuantity(quantity);
         order.setProductDescription(productDescription);
@@ -135,7 +135,7 @@ class EnterpriseApplicationTests {
         String carrier2 = "Societe Bic";
         String orderStatus2 = "Delivered";
 
-        Order order2 = new Order();
+        Bulk_Order order2 = new Bulk_Order();
         order2.setOrderId(orderId2);
         order2.setQuantity(quantity2);
         order2.setProductDescription(productDescription2);
@@ -144,10 +144,10 @@ class EnterpriseApplicationTests {
         order2.setCarrier(carrier2);
         order2.setOrderStatus(orderStatus2);
 
-        Order returnedOrder = orderService.create(order);
-        Order returnedOrder2 = orderService.create(order2);
+        Bulk_Order returnedOrder = orderService.create(order);
+        Bulk_Order returnedOrder2 = orderService.create(order2);
 
-        Order orderLookup = orderService.findByOrderId(orderId2);
+        Bulk_Order orderLookup = orderService.findByOrderId(orderId2);
         assertEquals(order2, orderLookup);
     }
 

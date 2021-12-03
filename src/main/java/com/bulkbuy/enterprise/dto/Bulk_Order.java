@@ -12,7 +12,8 @@ import javax.persistence.Id;
  * DTO, handles data for orders.
  */
 @Entity
-public @Data class Order {
+public @Data class Bulk_Order {
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

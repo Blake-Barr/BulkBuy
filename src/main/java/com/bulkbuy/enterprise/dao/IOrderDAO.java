@@ -1,15 +1,15 @@
 package com.bulkbuy.enterprise.dao;
 
-import com.bulkbuy.enterprise.dto.Order;
+import com.bulkbuy.enterprise.dto.Bulk_Order;
 
 import java.util.List;
 
 
 public interface IOrderDAO {
-    Order create(Order order);
+    Bulk_Order create(Bulk_Order order);
 
-    List<Order> getAllOrders();
+    List<Bulk_Order> getAllOrders();
 
-    Order findByOrderId(int id);
+    Bulk_Order findByOrderId(int id);
 
 }

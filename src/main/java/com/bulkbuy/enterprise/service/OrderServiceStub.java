@@ -1,7 +1,7 @@
 package com.bulkbuy.enterprise.service;
 
 import com.bulkbuy.enterprise.dao.IOrderDAO;
-import com.bulkbuy.enterprise.dto.Order;
+import com.bulkbuy.enterprise.dto.Bulk_Order;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -33,8 +33,8 @@ public class OrderServiceStub implements IOrderService {
      * @param order The order to be created
      */
     @Override
-    public Order create(Order order)  {
-        Order newOrder = orderDAO.create(order);
+    public Bulk_Order create(Bulk_Order order)  {
+        Bulk_Order newOrder = orderDAO.create(order);
         return newOrder;
     }
 
@@ -44,7 +44,7 @@ public class OrderServiceStub implements IOrderService {
      * @return the order with the specified id. If the order does not exist, returns null.
      */
     @Override
-    public Order findByOrderId(int id) {
+    public Bulk_Order findByOrderId(int id) {
         return orderDAO.findByOrderId(id);
     }
 
@@ -53,7 +53,7 @@ public class OrderServiceStub implements IOrderService {
      * @return the orders List
      */
     @Override
-    public List<Order> getAllOrders() {
+    public List<Bulk_Order> getAllOrders() {
 
         return orderDAO.getAllOrders();
     }
