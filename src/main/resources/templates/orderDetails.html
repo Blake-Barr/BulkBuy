@@ -14,27 +14,28 @@
 <main role="main" class="flex-shrink-0">
     <div class="container mt-5">
         <div class="jumbotron bg-dark text-white">
-            <h1 class="display-4">Order Lookup</h1>
+            <h1 class="display-4">Order Details</h1>
         </div>
     </div>
 </main>
 
-<div class="container">
-    <div id="orderLookup">
-        <form action="#" th:action="@{/orderDetails}" method="POST">
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label for="inlineFormInputName">Please Enter Your Order ID</label>
-                    <input type="text" name="lookupId" class="form-control" id="inlineFormInputName" th:value="lookupId" placeholder="Order ID...">
-                </div>
-            </div>
-        </form>
-    </div>
-</div>
-
-<div class="container">
-    <div id="orderContainer">
-    </div>
+<div class="list-group"style="text-align: center">
+    <label><b>Order ID:</b></label><br>
+    <p th:text="${order.getOrderId()}"/><br>
+    <label><b>Quantity:</b></label><br>
+    <p th:text="${order.getQuantity()}"/><br>
+    <label><b>Order Date:</b></label><br>
+    <p th:text="${order.getOrderDate()}"/><br>
+    <label><b>Estimated Arrival Date:</b></label><br>
+    <p th:text="${order.getEstimatedArrival()}"/><br>
+    <label><b>Carrier:</b></label><br>
+    <p th:text="${order.getCarrier()}"/><br>
+    <label><b>Status:</b></label><br>
+    <p th:text="${order.getOrderStatus()}"/><br>
+    <label><b>Recipient:</b></label><br>
+    <p th:text="${order.getCustomerName()}"/><br>
+    <label><b>Shipping Address:</b></label><br>
+    <p th:text="${order.getCustomerAddress()}"/><br>
 </div>
 
 <div class="container">

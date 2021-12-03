@@ -15,13 +15,7 @@ public class OrderService implements IOrderService{
     @Autowired
     private IOrderDAO orderDAO;
 
-    public OrderService() {
 
-    }
-
-    public OrderService(OrderDAO orderDAO) {
-        this.orderDAO = orderDAO;
-    }
 
     @Override
     public Bulk_Order create(Bulk_Order order) throws Exception {
@@ -29,7 +23,6 @@ public class OrderService implements IOrderService{
     }
 
     @Override
-    @Cacheable(value="order", key="#id")
     public Bulk_Order findByOrderId(int id) {
         Bulk_Order foundOrder = orderDAO.findByOrderId(id);
         return foundOrder;

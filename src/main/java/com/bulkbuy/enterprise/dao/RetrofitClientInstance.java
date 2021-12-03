@@ -7,7 +7,7 @@ public class RetrofitClientInstance {
 
     private static Retrofit retrofit;
     //NEED TO FIND JSON SOURCE
-    private static String BASE_URL = "JSON URL SOURCE";
+    private static final String BASE_URL = "JSON URL SOURCE";
 
 
     public static Retrofit getRetrofitInstance() {
