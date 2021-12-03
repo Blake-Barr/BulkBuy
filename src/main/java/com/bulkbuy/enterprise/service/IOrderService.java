@@ -29,6 +29,10 @@ public interface IOrderService {
      */
     List<Bulk_Order> getAllOrders();
 
+    /**
+     * Set the DAO to use
+     * @param orderDAO IOrderDAO to use
+     */
     void setOrderDAO(IOrderDAO orderDAO);
     IOrderDAO getOrderDAO();
 

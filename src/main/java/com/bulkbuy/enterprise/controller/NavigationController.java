@@ -22,7 +22,7 @@ public class NavigationController {
 
     /**
      * Endpoint control handler
-     * @return
+     * @return Index Page
      */
 
     @GetMapping("/index")
@@ -32,6 +32,10 @@ public class NavigationController {
         return "index";
     }
 
+    /**
+     * About endpoint
+     * @return About page
+     */
     @GetMapping("/about")
     public String getAbout(Model model){
         log.debug("About endpoint reached");
@@ -39,6 +43,10 @@ public class NavigationController {
         return "about";
     }
 
+    /**
+     * Place Order endpoint for creating orders
+     * @return Place Order page
+     */
     @GetMapping("/placeOrder")
     public String getPlaceOrder(Model model){
         log.debug("Place order endpoint reached");
@@ -47,13 +55,23 @@ public class NavigationController {
         model.addAttribute(order);
         return "placeOrder";
     }
+
+    /**
+     * Lookup endpoint for entering ID to search
+     * @return Lookup page
+     */
     @GetMapping("/orderLookup")
     public String getOrderLookup(Model model) {
         log.debug("Order lookup endpoint reached");
         return "orderLookup";
     }
 
-
+    /**
+     * Save new order endpoint
+     * @param order Order to be saved
+     * @return Index Page
+     * @throws Exception
+     */
     @RequestMapping(value = "/saveOrder", method = RequestMethod.POST)
     public String saveOrder(@ModelAttribute("order") Bulk_Order order, BindingResult result, ModelMap model) throws Exception {
 
@@ -64,7 +82,7 @@ public class NavigationController {
             {
                 throw new Exception("Form returned with error");
             }
-            Bulk_Order newOrder = orderService.create(order);
+            orderService.create(order);
             log.info("New order created successfully");
         }
         catch (Exception ex)
@@ -76,14 +94,25 @@ public class NavigationController {
         return "index";
     }
 
+     /**
+     * Endpoint for looking specified order up
+     * @param id Order ID to look up
+     * @return Order details page
+     */
     @PostMapping("/orderDetails")
     public ModelAndView orderDetails(@RequestParam(value="lookupId", required = true, defaultValue = "0") int id) {
         log.debug("Specific order lookup endpoint reached. ID= " + id );
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("orderDetails");
-        Bulk_Order order= orderService.findByOrderId(id);
-        modelAndView.addObject("order",order);
+        try {
 
+            modelAndView.setViewName("orderDetails");
+            Bulk_Order order= orderService.findByOrderId(id);
+            modelAndView.addObject("order",order);
+        }
+        catch (Exception ex){
+            log.error("failed to load order with specified ID", ex);
+            throw ex;
+        }
         return modelAndView;
     }
 

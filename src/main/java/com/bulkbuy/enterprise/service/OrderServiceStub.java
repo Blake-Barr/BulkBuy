@@ -16,7 +16,6 @@ public class OrderServiceStub implements IOrderService {
     @Autowired
     private IOrderDAO orderDAO;
 
-
     public OrderServiceStub() {
 
     }
@@ -55,11 +54,19 @@ public class OrderServiceStub implements IOrderService {
         return orderDAO.getAllOrders();
     }
 
+    /**
+     * Set the DAO for the stub
+     * @param orderDAO DAO to use
+     */
     @Override
     public void setOrderDAO(IOrderDAO orderDAO) {
         this.orderDAO=orderDAO;
     }
 
+    /**
+     * Get the DAO in use
+     * @return IOrderDAO in use
+     */
     @Override
     public IOrderDAO getOrderDAO() {
         return orderDAO;
