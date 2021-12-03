@@ -131,15 +131,11 @@ IOrderDAO, OrderDAO, OrderDAOStub - handles data retrieval and storage for the a
 
 ## Team Members & Roles
 
-**UI Specialist**: Brendan Root
-
-**UI Specialist**: Maximiliano De Santiago Galan
+**UI Specialist**: Blake Barr / Brandon Matalka
 
 **Business Logic and Persistence Specialist**: Brandon Matalka
 
-**Business Logic and Persistence Specialist**: Blake Barr
-
-**Product Owner/Scrum Master/DevOps/GitHub Administrator**: Nathan Coffee
+**Product Owner/Scrum Master/DevOps/GitHub Administrator**: Blake Barr
 
 ## Milestones
 
